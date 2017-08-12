@@ -20,6 +20,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "Cell \(indexPath.row+1)"
+        cell.accessoryType = .checkmark
         return cell
     }
     
@@ -29,6 +30,12 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
+        let cell = tableView.cellForRow(at: indexPath)
+        if cell?.accessoryType == .checkmark {
+           cell?.accessoryType = .none
+        } else {
+           cell?.accessoryType = .checkmark
+        }
     }
 
     func open() {

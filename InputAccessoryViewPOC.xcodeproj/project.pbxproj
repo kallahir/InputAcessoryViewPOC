@@ -13,6 +13,8 @@
 		0703A3011F3BE89E009656F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0703A2FF1F3BE89E009656F0 /* LaunchScreen.storyboard */; };
 		0703A3091F3BEA69009656F0 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0703A3081F3BEA69009656F0 /* CollectionViewController.swift */; };
 		0703A30B1F3BEADE009656F0 /* InputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0703A30A1F3BEADE009656F0 /* InputAccessoryView.swift */; };
+		0703A3101F3E6CBD009656F0 /* InMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0703A30F1F3E6CBD009656F0 /* InMessageCell.swift */; };
+		0703A3121F3E6CCA009656F0 /* OutMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0703A3111F3E6CCA009656F0 /* OutMessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		0703A3021F3BE89E009656F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0703A3081F3BEA69009656F0 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		0703A30A1F3BEADE009656F0 /* InputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAccessoryView.swift; sourceTree = "<group>"; };
+		0703A30F1F3E6CBD009656F0 /* InMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMessageCell.swift; sourceTree = "<group>"; };
+		0703A3111F3E6CCA009656F0 /* OutMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutMessageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,15 +61,41 @@
 			isa = PBXGroup;
 			children = (
 				0703A2F61F3BE89E009656F0 /* AppDelegate.swift */,
-				0703A2F81F3BE89E009656F0 /* TableViewController.swift */,
-				0703A3081F3BEA69009656F0 /* CollectionViewController.swift */,
-				0703A30A1F3BEADE009656F0 /* InputAccessoryView.swift */,
+				0703A30E1F3E6B46009656F0 /* Input Accessory View */,
+				0703A30D1F3E6B3F009656F0 /* Table View */,
+				0703A30C1F3E6B37009656F0 /* Collection View */,
 				0703A2FD1F3BE89E009656F0 /* Assets.xcassets */,
 				0703A2FF1F3BE89E009656F0 /* LaunchScreen.storyboard */,
 				0703A3021F3BE89E009656F0 /* Info.plist */,
 			);
 			name = InputAccessoryViewPOC;
 			path = InputAcessoryViewPOC;
+			sourceTree = "<group>";
+		};
+		0703A30C1F3E6B37009656F0 /* Collection View */ = {
+			isa = PBXGroup;
+			children = (
+				0703A3081F3BEA69009656F0 /* CollectionViewController.swift */,
+				0703A30F1F3E6CBD009656F0 /* InMessageCell.swift */,
+				0703A3111F3E6CCA009656F0 /* OutMessageCell.swift */,
+			);
+			name = "Collection View";
+			sourceTree = "<group>";
+		};
+		0703A30D1F3E6B3F009656F0 /* Table View */ = {
+			isa = PBXGroup;
+			children = (
+				0703A2F81F3BE89E009656F0 /* TableViewController.swift */,
+			);
+			name = "Table View";
+			sourceTree = "<group>";
+		};
+		0703A30E1F3E6B46009656F0 /* Input Accessory View */ = {
+			isa = PBXGroup;
+			children = (
+				0703A30A1F3BEADE009656F0 /* InputAccessoryView.swift */,
+			);
+			name = "Input Accessory View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,9 +170,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0703A3101F3E6CBD009656F0 /* InMessageCell.swift in Sources */,
 				0703A3091F3BEA69009656F0 /* CollectionViewController.swift in Sources */,
 				0703A2F91F3BE89E009656F0 /* TableViewController.swift in Sources */,
 				0703A30B1F3BEADE009656F0 /* InputAccessoryView.swift in Sources */,
+				0703A3121F3E6CCA009656F0 /* OutMessageCell.swift in Sources */,
 				0703A2F71F3BE89E009656F0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

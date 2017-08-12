@@ -50,18 +50,19 @@ class InputAccessoryView: UIView, UITextViewDelegate {
         self.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
         
         self.addSubview(self.sendButton)
+        self.addSubview(self.inputTextArea)
+        self.addSubview(self.separatorLineView)
+        
         self.sendButton.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        self.sendButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        self.sendButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -4).isActive = true
         self.sendButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
         self.sendButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         
-        self.addSubview(self.inputTextArea)
         self.inputTextArea.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
         self.inputTextArea.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         self.inputTextArea.rightAnchor.constraint(equalTo: self.sendButton.leftAnchor).isActive = true
         self.inputTextArea.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -16).isActive = true
         
-        self.addSubview(self.separatorLineView)
         self.separatorLineView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         self.separatorLineView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         self.separatorLineView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
@@ -73,7 +74,7 @@ class InputAccessoryView: UIView, UITextViewDelegate {
     }
     
     override var intrinsicContentSize: CGSize {
-        get{
+        get {
             let textSize = self.inputTextArea.sizeThatFits(CGSize(width: self.inputTextArea.bounds.width, height: CGFloat.greatestFiniteMagnitude))
             return CGSize(width: self.bounds.width, height: textSize.height)
         }
