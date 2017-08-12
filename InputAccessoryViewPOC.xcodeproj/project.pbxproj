@@ -15,6 +15,7 @@
 		0703A30B1F3BEADE009656F0 /* InputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0703A30A1F3BEADE009656F0 /* InputAccessoryView.swift */; };
 		0703A3101F3E6CBD009656F0 /* InMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0703A30F1F3E6CBD009656F0 /* InMessageCell.swift */; };
 		0703A3121F3E6CCA009656F0 /* OutMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0703A3111F3E6CCA009656F0 /* OutMessageCell.swift */; };
+		0703A3151F3E96E8009656F0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0703A3141F3E96E8009656F0 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		0703A30A1F3BEADE009656F0 /* InputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAccessoryView.swift; sourceTree = "<group>"; };
 		0703A30F1F3E6CBD009656F0 /* InMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMessageCell.swift; sourceTree = "<group>"; };
 		0703A3111F3E6CCA009656F0 /* OutMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutMessageCell.swift; sourceTree = "<group>"; };
+		0703A3141F3E96E8009656F0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				0703A2F61F3BE89E009656F0 /* AppDelegate.swift */,
+				0703A3131F3E96D2009656F0 /* Model */,
 				0703A30E1F3E6B46009656F0 /* Input Accessory View */,
 				0703A30D1F3E6B3F009656F0 /* Table View */,
 				0703A30C1F3E6B37009656F0 /* Collection View */,
@@ -96,6 +99,14 @@
 				0703A30A1F3BEADE009656F0 /* InputAccessoryView.swift */,
 			);
 			name = "Input Accessory View";
+			sourceTree = "<group>";
+		};
+		0703A3131F3E96D2009656F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0703A3141F3E96E8009656F0 /* Message.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +187,7 @@
 				0703A30B1F3BEADE009656F0 /* InputAccessoryView.swift in Sources */,
 				0703A3121F3E6CCA009656F0 /* OutMessageCell.swift in Sources */,
 				0703A2F71F3BE89E009656F0 /* AppDelegate.swift in Sources */,
+				0703A3151F3E96E8009656F0 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +345,7 @@
 				0703A3071F3BE89E009656F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -17,6 +17,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
                               "message02, small",
                               "message03, woooow such a huge message what is that for? why dont you talk a little bit less... 'cause i dont want to!",
                               "message04, small? not this time, not this time"]
+    var messages_: [Message] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,10 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         self.collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         self.collectionView?.register(InMessageCell.self, forCellWithReuseIdentifier: inCell)
         self.collectionView?.register(OutMessageCell.self, forCellWithReuseIdentifier: outCell)
+        
+        self.loadMessages()
     }
-
+    
     lazy var inputContainerView: InputAccessoryView = {
         let view = InputAccessoryView()
         view.collectionViewController = self
@@ -53,29 +56,27 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.item < 4 {
+        let message = messages_[indexPath.item]
+        
+        if message.userId == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: outCell, for: indexPath) as! OutMessageCell
-            cell.textView.text = messages[indexPath.item]
-            cell.bubbleWidth?.constant = self.getFrameForText(content: messages[indexPath.item]).width + 32
+            cell.textView.text = message.text
+            cell.bubbleWidth?.constant = self.getFrameForText(content: message.text).width + 32
             return cell
         }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: inCell, for: indexPath) as! InMessageCell
-        cell.textView.text = messages[indexPath.item-4]
-        cell.bubbleWidth?.constant = self.getFrameForText(content: messages[indexPath.item-4]).width + 32
+        cell.textView.text = message.text
+        cell.bubbleWidth?.constant = self.getFrameForText(content: message.text).width + 32
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return self.messages_.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.item < 4 {
-            let height = getFrameForText(content: messages[indexPath.item]).height + 20
-            return CGSize(width: UIScreen.main.bounds.width, height: height)
-        }
-        let height = getFrameForText(content: messages[indexPath.item-4]).height + 20
+        let height = getFrameForText(content: messages_[indexPath.item].text).height + 20
         return CGSize(width: UIScreen.main.bounds.width, height: height)
     }
     
@@ -89,9 +90,25 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     }
     
     func send() {
-//        print(self.inputContainerView.inputTextArea.text)
-        self.inputContainerView.inputTextArea.text = nil
-        self.inputContainerView.invalidateIntrinsicContentSize()
+        if let text = self.inputContainerView.inputTextArea.text{
+            if !text.isEmpty{
+                self.messages_.append(Message(text: text.trimmingCharacters(in: .whitespacesAndNewlines), userId: 1, userName: "Itallo"))
+                let indexPath = IndexPath(item: self.messages_.count-1, section: 0)
+                self.collectionView?.insertItems(at: [indexPath])
+                self.collectionView?.scrollToItem(at: indexPath, at: .top, animated: true)
+                self.inputContainerView.inputTextArea.text = nil
+                self.inputContainerView.invalidateIntrinsicContentSize()
+            }
+        }
+    }
+    
+    func loadMessages() {
+        self.messages.forEach { (msg) in
+            self.messages_.append(Message(text: msg, userId: 1, userName: "Itallo"))
+        }
+        self.messages.forEach { (msg) in
+            self.messages_.append(Message(text: msg, userId: 2, userName: "Bender"))
+        }
     }
 
 }
