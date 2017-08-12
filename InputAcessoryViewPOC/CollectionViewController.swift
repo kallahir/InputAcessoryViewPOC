@@ -73,10 +73,10 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.item < 4 {
             let height = getFrameForText(content: messages[indexPath.item]).height + 20
-            return CGSize(width: self.view.frame.width, height: height)
+            return CGSize(width: UIScreen.main.bounds.width, height: height)
         }
         let height = getFrameForText(content: messages[indexPath.item-4]).height + 20
-        return CGSize(width: self.view.frame.width, height: height)
+        return CGSize(width: UIScreen.main.bounds.width, height: height)
     }
     
     func getFrameForText(content: String) -> CGRect {

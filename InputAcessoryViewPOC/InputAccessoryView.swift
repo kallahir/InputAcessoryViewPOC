@@ -76,7 +76,7 @@ class InputAccessoryView: UIView, UITextViewDelegate {
     override var intrinsicContentSize: CGSize {
         get {
             let textSize = self.inputTextArea.sizeThatFits(CGSize(width: self.inputTextArea.bounds.width, height: CGFloat.greatestFiniteMagnitude))
-            return CGSize(width: self.bounds.width, height: textSize.height)
+            return CGSize(width: UIViewNoIntrinsicMetric, height: textSize.height)
         }
     }
     
