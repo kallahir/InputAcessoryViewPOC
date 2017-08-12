@@ -15,8 +15,8 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     
     var messages: [String] = ["message01, kind of small-ish",
                               "message02, small",
-                              "message03, woooow such a huge message what is that for? why dont you talk a little bit less... 'cause i dont want to!",
-                              "message04, small? not this time, not this time"]
+                              "message03, woooow such a huge message what is that for? why dont you talk a little bit less... 'cause i dont want to!"]//,
+//                              "message04, small? not this time, not this time"]
     var messages_: [Message] = []
     
     override func viewDidLoad() {
@@ -31,6 +31,18 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         self.collectionView?.register(OutMessageCell.self, forCellWithReuseIdentifier: outCell)
         
         self.loadMessages()
+        self.setupKeyboardEvents()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let indexPath = IndexPath(item: self.messages_.count-1, section: 0)
+        self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
     }
     
     lazy var inputContainerView: InputAccessoryView = {
@@ -111,4 +123,16 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         }
     }
 
+    func setupKeyboardEvents(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
+    }
+    
+    func keyboardDidShow(){
+        if self.messages_.count > 0 {
+            let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
+            self.collectionView?.scrollToItem(at: indexPath, at: .top, animated: true)
+        }
+    }
+    
 }

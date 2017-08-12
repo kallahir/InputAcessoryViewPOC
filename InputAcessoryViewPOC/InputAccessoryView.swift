@@ -80,8 +80,17 @@ class InputAccessoryView: UIView, UITextViewDelegate {
         }
     }
     
+    override func layoutIfNeeded() {
+        print("LAYOUT")
+    }
+    
     func textViewDidChange(_ textView: UITextView) {
         self.invalidateIntrinsicContentSize()
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        let indexPath = IndexPath(item: (self.collectionViewController?.messages_.count)!-1, section: 0)
+        self.collectionViewController?.collectionView?.scrollToItem(at: indexPath, at: .top, animated: true)
     }
 
 }
